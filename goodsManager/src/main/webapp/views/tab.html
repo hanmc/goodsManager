@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache" /> 
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>无标题文档</title>
+<link href="../styles/style.css" rel="stylesheet" type="text/css" />
+<link href="../styles/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="../scripts/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="../scripts/select-ui.min.js"></script>
+<script type="text/javascript" src="../scripts/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../scripts/utils/util.js" ></script>
+<script type="text/javascript" src="../scripts/utils/public.js" ></script>
+<script type="text/javascript" src="../scripts/utils/api.js" ></
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+	$(".scbtn1").click(function(){      
+        if( $(".seachform2").hasClass("hideclass") ){ 
+            $(".seachform2").removeClass("hideClass"); 
+        } 
+        else{ 
+            $(".seachform2").addClass("hideClass"); 
+        }    
+    }); 
+});
+</script>
+</head>
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">数据处理</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">数据添加</a></li> 
+    <li><a href="#tab2">数据查询</a></li> 
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    
+	    <div class="formtext">Hi，<b>admin</b>，欢迎您使用数据添加功能！</div>
+	    
+	    <form id="createForm">
+		    <ul class="forminfo">
+			    <li><label>货物名称<b>*</b></label><input name="goodsName" id="goodsName" type="text" class="dfinput" style="width:200px;"/></li>
+			    <li><label>货物数量<b>*</b></label><input name="operateCount" id="operateCount" type="text" class="dfinput" style="width:200px;"/></li>
+			   
+			    <li><label>操作类型<b>*</b></label>  
+				    <div class="vocation"  style="width:200px;">
+					    <select name="operateType" id="operateType" class="select2">
+						    <option>进货</option>
+						    <option>出货</option>
+					    </select>
+				    </div>
+			    </li>
+			    <li><label>经办人<b>*</b></label><input name="operator" id="operator" type="text" class="dfinput" style="width:200px;"/></li>
+			    <li><label>单价<b>*</b></label><input name="price" id="price" type="text" class="dfinput" style="width:200px;"/></li>
+		        <li><label>备注</label><textarea name="remark" id="remark" cols="" rows="" class="textinput"></textarea></li>
+			    
+		 		<li><label>&nbsp;</label><input id="createBtn" type="submit" class="btn" value="添加" onclick="createSubmit()" /></li>
+		    </ul>
+	    </form>
+	</div>    
+  </div> 
+	    
+    
+  	<div id="tab2" class="tabson">
+	    <div class="formtext">Hi，<b>admin</b>，欢迎您使用数据查询功能！</div>
+	    
+   	    <form id="searchForm">
+	        <ul class="seachform">
+	    		
+			    <li>
+			    	<label>操作时间</label>
+			    	<input id="beginTime" type="text" class="scinput" style="width:110px;"/>
+			    	<input id="endTime" type="text" class="scinput" style="width:110px;"/>
+			    </li>
+			    <li><label>货物名称</label><input id="goodsName" type="text" class="scinput" style="width:110px;"/></li>
+			    <li><label>操作员</label><input id="operator" type="text" class="scinput" style="width:110px;"/></li>
+			    
+			    <li><label>操作方向</label>  
+			    <div class="vocation" style="width:70px;">
+				    <select class="select3" id="operateType">
+					    <option value="in" seleted>进货</option>
+					    <option value="out">出货</option>
+				    </select>
+			    </div>
+			    </li>
+			    
+			    <li><label>&nbsp;</label><input id="searchBtn" type="submit" class="scbtn" value="查询" onclick="searchBtn()" /></li>
+		    </ul>
+	    </form>
+		    
+	    
+	    <table class="tablelist">
+	    	<thead>
+		    	<tr>
+			        <th><input name="" type="checkbox" value="" checked="checked"/></th>
+			        <th>操作编号<i class="sort"><img src="../images/px.gif" /></i></th>
+			        <th>操作时间</th>
+			        <th>货物名称</th>
+			        <th>操作数量</th>
+			        <th>操作类型</th>
+			        <th>来源/出处</th>
+			        <th>经办人</th>
+			        <th>单价</th>
+			        <th>操作</th>
+		        </tr>
+	        </thead>
+	        <tbody>
+		        <tr>
+			        <td><input name="" type="checkbox" value="" /></td>
+			        <td>20130908</td>
+			        <td>王金平幕僚：马英九声明字字见血 人活着没意思</td>
+			        <td>admin</td>
+			        <td>江苏南京</td>
+			        <td>2013-09-09 15:05</td>
+			        <td>已审核</td>
+			        <td>已审核</td>
+			        <td>已审核</td>
+			        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+		        </tr> 
+	    
+	        </tbody>
+	    </table>
+    </div>  
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+
+</body>
+
+<script type="text/javascript">
+	
+	
+	var createSubmit = function(){
+		var params = {};
+		params.goodsName = $("#goodsName").val();
+		params.operateCount = $("#operateCount").val();
+		params.operateType = $("#operateType").val();
+		params.operator = $("#operator").val();
+		params.price = $("#price").val();
+		params.remark = $("#remark").val();
+		
+		IM.api.Post('operateFlowCreate',params,{
+			success : function(data) {
+				if(data.result){
+					confirm("操作成功!");
+				}else{
+					alert("操作失败：" + data.returnMsg);
+				}
+			}
+		});
+		
+	};
+	
+	
+	$("#createForm").validate({
+		rules:{
+			goodsName:{
+				required: true, 
+				rangelength: [2,5], 
+			},
+			operateCount:{
+				required: true,
+				rangelength: [1,5],
+				number:true
+			}
+		},
+		message:{
+			goodsName:{
+				required: "请输入货物名", 
+				rangelength: "货物名称长度为2-5", 
+			},
+			operateCount:{
+				required: "请输入操作数量", 
+				rangelength: "操作数量长度为1-5", 
+				number: "必须为数字" 
+			}
+		}
+		
+	}/* ,
+	submitHandler:function(){
+		alert("提交");
+		createSubmit();
+	} */
+	);
+</script>
+</html>
